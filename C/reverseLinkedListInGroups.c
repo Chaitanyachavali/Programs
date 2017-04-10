@@ -77,23 +77,30 @@ int reverseGroup(int val)
 {
 	int check = 0;
 	int headval;
-	struct node *first, *last, *plast;
-	first = (struct node *)malloc(sizeof(struct node));
-	last = (struct node *)malloc(sizeof(struct node));
-	plast = (struct node *)malloc(sizeof(struct node));
-	last = header;
-	headval = last->data;
-	if(last->data == val)
+	struct node *prev, *curr, *nxt, *temp1;
+	prev = (struct node *)malloc(sizeof(struct node));
+	curr = (struct node *)malloc(sizeof(struct node));
+	nxt = (struct node *)malloc(sizeof(struct node));
+	temp1 = header;
+	if(temp1->data == val)
 	{
 		return 0;
 	}
-	while(last->next != NULL)
+	while(temp1->next != NULL)
 	{
-		last = last->next;
-		if(last->data == val)
+		temp1 = temp1->next;
+		if(temp1->data == val)
 		{
-			check = 1;
-			fisrt = header;
+			prev = temp1;
+			curr = prev->next;
+			while(curr != NULL)
+			{
+				nxt = curr->next;
+				curr->next = prev;
+				prev = curr;
+				nxt = curr;
+			}
+			return 0;
 		}
 	}
 	if(check == 0)
