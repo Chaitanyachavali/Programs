@@ -21,12 +21,15 @@ Input:
 
 Output:
 4 2 2 1 8 7 6 5
+
+Source: http://practice.geeksforgeeks.org/problems/reverse-a-linked-list-in-groups-of-given-size/1
 */
 
 /*
 Author: Chaitanya Reddy (@chaitanyachavali)
 Date: 10/04/2017
 */
+
 #include <stdio.h>
 #include <stdlib.h>
 struct node

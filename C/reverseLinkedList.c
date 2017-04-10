@@ -1,32 +1,33 @@
 /* 
 ##Question
 
-Given a linked list, write a function to reverse every k nodes (where k is an input to the function).If a linked list is given as 1->2->3->4->5->6->7->8->NULL and k = 3 then output will be 3->2->1->6->5->4->8->7->NULL.
+Given pointer to the head node of a linked list, the task is to reverse the linked list.
 
 Input:
-In this problem, method takes two argument: the head of the linked list and int k. You should not read any input from stdin/console.
-The struct Node has a data part which stores the data and a next pointer which points to the next element of the linked list. 
-There are multiple test cases. For each test case, this method will be called individually.
+You need to complete a method reverse() that takes head as argument and returns new head.
+There are multiple test cases. For each test case, this method will be called individually.  The first line of input contains number of test cases.  Every test case has two lines, number of nodes first line and data values in next line.
 
 Output:
-Reverse the linked list in the group of given size and return the reference of starting node(head) of the reversed Linked list .
+Reverse the linked list and return head of the modified list.
 
-Note: If you use "Test" or "Expected Output Button" use below example format
+
 Example:
 Input:
 1
-8
-1 2 2 4 5 6 7 8
-4
+6
+1 2 3 4 5 6
 
 Output:
-4 2 2 1 8 7 6 5
+6 5 4 3 2 1
+
+Source: http://practice.geeksforgeeks.org/problems/reverse-a-linked-list/1
 */
 
 /*
 Author: Chaitanya Reddy (@chaitanyachavali)
 Date: 10/04/2017
 */
+
 #include <stdio.h>
 #include <stdlib.h>
 struct node
@@ -72,11 +73,10 @@ int display()
 }
 int reverse()
 {
-	struct node *prev, *curr, *nxt, *temp1;
+	struct node *prev, *curr, *nxt;
 	prev = (struct node *)malloc(sizeof(struct node));
 	curr = (struct node *)malloc(sizeof(struct node));
 	nxt = (struct node *)malloc(sizeof(struct node));
-	temp1 = (struct node *)malloc(sizeof(struct node));
 	curr = header;
 	prev = NULL;
 	nxt = NULL;
