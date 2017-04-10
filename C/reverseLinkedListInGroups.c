@@ -70,24 +70,34 @@ int display()
 	printf("NULL");
 	return 0;
 }
-int reverse()
+int reverseGroup(int val)
 {
-	struct node *prev, *curr, *nxt, *temp1;
-	prev = (struct node *)malloc(sizeof(struct node));
-	curr = (struct node *)malloc(sizeof(struct node));
-	nxt = (struct node *)malloc(sizeof(struct node));
-	temp1 = (struct node *)malloc(sizeof(struct node));
-	curr = header;
-	prev = NULL;
-	nxt = NULL;
-	while(curr != NULL)
+	int check = 0;
+	int headval;
+	struct node *first, *last, *plast;
+	first = (struct node *)malloc(sizeof(struct node));
+	last = (struct node *)malloc(sizeof(struct node));
+	plast = (struct node *)malloc(sizeof(struct node));
+	last = header;
+	headval = last->data;
+	if(last->data == val)
 	{
-		nxt = curr->next;
-		curr->next = prev;
-		prev = curr;
-		curr = nxt;
+		return 0;
 	}
-	header = prev;
+	while(last->next != NULL)
+	{
+		last = last->next;
+		if(last->data == val)
+		{
+			check = 1;
+			fisrt = header;
+		}
+	}
+	if(check == 0)
+	{
+
+		printf("Number not found\n");
+	}
 	return 0;
 }
 int main()
@@ -107,7 +117,9 @@ int main()
 	makenode(9);
 	display();
 	printf("\n");
-	reverse();
+	printf("Enter a number to reverse in group\n");
+	scanf("%d", &a);
+	reverseGroup(a);
 	display();
 	return 0;
 }
