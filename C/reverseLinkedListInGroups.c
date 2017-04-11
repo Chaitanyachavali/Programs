@@ -75,39 +75,35 @@ int display()
 }
 int reverseGroup(int val)
 {
-	int check = 0;
+	int count = 0;
 	int headval;
 	struct node *prev, *curr, *nxt, *temp1;
 	prev = (struct node *)malloc(sizeof(struct node));
 	curr = (struct node *)malloc(sizeof(struct node));
 	nxt = (struct node *)malloc(sizeof(struct node));
-	temp1 = header;
-	if(temp1->data == val)
+	curr = header;
+	prev = NULL;
+	nxt = NULL;
+	while(curr !=NULL && count<val)
 	{
-		return 0;
+		nxt = curr->next;
+		curr->next = prev;
+		prev = curr;
+		curr = nxt;
+		count++;
 	}
-	while(temp1->next != NULL)
+	//header = prev;
+	while(nxt != NULL)
 	{
-		temp1 = temp1->next;
-		if(temp1->data == val)
+		while(curr != NULL)
 		{
-			prev = temp1;
-			curr = prev->next;
-			while(curr != NULL)
-			{
-				nxt = curr->next;
-				curr->next = prev;
-				prev = curr;
-				nxt = curr;
-			}
-			return 0;
+			nxt = curr->next;
+			curr->next = prev;
+			prev = curr;
+			curr = nxt;
 		}
 	}
-	if(check == 0)
-	{
-
-		printf("Number not found\n");
-	}
+	header = prev;
 	return 0;
 }
 int main()
