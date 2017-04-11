@@ -92,17 +92,6 @@ int reverseGroup(int val)
 		curr = nxt;
 		count++;
 	}
-	//header = prev;
-	while(nxt != NULL)
-	{
-		while(curr != NULL)
-		{
-			nxt = curr->next;
-			curr->next = prev;
-			prev = curr;
-			curr = nxt;
-		}
-	}
 	header = prev;
 	return 0;
 }
